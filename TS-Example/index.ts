@@ -1,15 +1,15 @@
 import { ethers } from "ethers";
-import obolSDK from "@obolnetwork/obol-sdk";
-import { ClusterLock } from "@obolnetwork/obol-sdk/dist/types";
+import {Client} from "@obolnetwork/obol-sdk";
+import { ClusterLock } from "@obolnetwork/obol-sdk/dist/types.js";
 
 
 /**
  * @returns instantiates and returns Obol SDK Client
  */
-const obolClient = async (): Promise<obolSDK.Client> => {
+const obolClient = async (): Promise<Client> => {
   const provider = new ethers.BrowserProvider((window as any).ethereum);
   const signer = await provider.getSigner();
-  const client = new obolSDK.Client({ baseUrl: "https://api.obol.tech", chainId: 5 }, signer);
+  const client = new Client({ baseUrl: "https://api.obol.tech", chainId: 5 }, signer);
   return client
 }
 

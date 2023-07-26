@@ -1,4 +1,4 @@
-import obolSDK from "@obolnetwork/obol-sdk";
+import {Client} from "@obolnetwork/obol-sdk";
 import { ethers } from "ethers";
 
 /**
@@ -7,7 +7,7 @@ import { ethers } from "ethers";
 const obolClient = async () => {
   const provider = new ethers.BrowserProvider(window.ethereum);
   const signer = await provider.getSigner();
-  const client = new obolSDK.Client({ baseUrl: "https://api.obol.tech", chainId: 5 }, signer);
+  const client = new Client({ baseUrl: "https://api.obol.tech", chainId: 5 }, signer);
   return client
 }
 
