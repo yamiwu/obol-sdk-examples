@@ -3,17 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "esbuild ./*.ts --outdir=dist --format=esm",
+    "build": "esbuild ./*.ts --outdir=dist --out-extension:.js=.mjs  --format=esm",
     "start": "node dist/index.mjs"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^5.1.6",
-    "esbuild": "^0.18.17"
+    "esbuild": "^0.18.17",
+    "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@obolnetwork/obol-sdk": "^1.0.1",
+    "@obolnetwork/obol-sdk": "^1.0.3",
     "ethers": "^6.4.0"
   }
 }
