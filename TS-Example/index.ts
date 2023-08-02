@@ -28,9 +28,13 @@ const client = new Client({ baseUrl: "https://api.obol.tech", chainId: 5 }, sign
  */
 const obolClient = async (): Promise<Client> => {
   const provider = new ethers.BrowserProvider((window as any).ethereum);
-  const signer = await provider.getSigner();
-  const client = new Client({ baseUrl: "https://api.obol.tech", chainId: 5 }, signer);
-  return client
+  try {
+    const signer = await provider.getSigner();
+    const client = new Client({ baseUrl: "https://api.obol.tech", chainId: 5 }, signer);
+    return client
+  } catch (err) {
+    console.log(err, "err");
+  }
 }
 
 /**
